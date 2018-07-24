@@ -1,3 +1,4 @@
+import * as uuid from 'uuid';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -6,13 +7,20 @@ export class AppService {
     this.todos = [];
   }
 
-  findAll(): string {
+  findAll() {
     return this.todos;
   }
 
-  create(todo) {
-    this.todos.push(todo);
-    return todo;
+  find(id) {
+    return this.todos.find(todo => todo.id === id);
+  }
+
+  create(todo, { host, path }) {
+    const id = uuid.v4();
+    const url = `https://${host}${path}${id}`;
+    const newTodo = Object.assign({ id, url, completed: false }, todo);
+    this.todos.push(newTodo);
+    return newTodo;
   }
 
   deleteAll() {
