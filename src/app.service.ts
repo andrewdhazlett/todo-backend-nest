@@ -23,6 +23,13 @@ export class AppService {
     return newTodo;
   }
 
+  update(id, update) {
+    const todo = this.find(id);
+    if (todo != null) {
+      return Object.assign(todo, update);
+    }
+  }
+
   deleteAll() {
     while (this.todos.length > 0) this.todos.shift();
     return this.todos;

@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Request
 } from '@nestjs/common';
@@ -29,6 +30,11 @@ export class AppController {
       host: req.hostname,
       path: req.path
     });
+  }
+
+  @Patch(':id')
+  update(@Param('id') id, @Body() update) {
+    return this.appService.update(id, update);
   }
 
   @Delete()
