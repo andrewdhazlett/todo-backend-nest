@@ -8,25 +8,25 @@ import {
   Post,
   Request
 } from '@nestjs/common';
-import { AppService } from './app.service';
+import { TodosService } from './todos/todos.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly todosService: TodosService) {}
 
   @Get()
   findAll() {
-    return this.appService.findAll();
+    return this.todosService.findAll();
   }
 
   @Get(':id')
   find(@Param('id') id) {
-    return this.appService.find(id);
+    return this.todosService.find(id);
   }
 
   @Post()
   create(@Body() todo, @Request() req) {
-    return this.appService.create(todo, {
+    return this.todosService.create(todo, {
       host: req.hostname,
       path: req.path
     });
@@ -34,16 +34,16 @@ export class AppController {
 
   @Patch(':id')
   update(@Param('id') id, @Body() update) {
-    return this.appService.update(id, update);
+    return this.todosService.update(id, update);
   }
 
   @Delete()
   deleteAll() {
-    return this.appService.deleteAll();
+    return this.todosService.deleteAll();
   }
 
   @Delete(':id')
   delete(@Param('id') id) {
-    return this.appService.delete(id);
+    return this.todosService.delete(id);
   }
 }
