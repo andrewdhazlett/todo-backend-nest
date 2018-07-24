@@ -41,4 +41,9 @@ export class AppController {
   deleteAll() {
     return this.appService.deleteAll();
   }
+
+  @Delete(':id')
+  delete(@Param('id') id) {
+    return this.appService.delete(id);
+  }
 }

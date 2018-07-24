@@ -34,4 +34,9 @@ export class AppService {
     while (this.todos.length > 0) this.todos.shift();
     return this.todos;
   }
+
+  delete(id) {
+    this.todos = this.todos.filter(todo => todo.id !== id);
+    return this.todos;
+  }
 }
