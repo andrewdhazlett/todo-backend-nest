@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
 import { TodosController } from './todos/todos.controller';
 import { TodosModule } from './todos/todos.module';
 
 @Module({
-  imports: [TodosModule],
+  imports: [TypeOrmModule.forRoot(), TodosModule],
   controllers: [TodosController]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private readonly connection: Connection) {}
+}
