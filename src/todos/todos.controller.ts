@@ -12,7 +12,7 @@ import { ApiOperation, ApiResponse, ApiUseTags } from '@nestjs/swagger';
 import { TodosService } from './todos.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
-import { Todo } from './dto/todo.dto';
+import { Todo } from './todo.entity';
 
 @ApiUseTags('todos')
 @Controller()

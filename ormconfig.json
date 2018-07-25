@@ -5,6 +5,6 @@
   "username": "andrew",
   "password": "",
   "database": "todo_backend",
-  "entities": ["src/**/**.entity{.ts}"],
-  "synchronize": true
+  "entities": ["dist/**/*.entity.js"],
+  "migrations": ["dist/**/*.migration.js"]
 }
