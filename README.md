@@ -2,7 +2,7 @@
 
 ## Description
 
-API supporting the READI webapp
+API supporting the TODO webapp
 
 ## Installation
 
